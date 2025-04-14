@@ -33,18 +33,35 @@ const anecdoteReducer = (state = initialState, action) => {
         }
         return anecdote;
       });
+
+    case 'CREATE': // 恢复 CREATE 的处理逻辑
+      return [...state, action.payload];
+
     default:
       return state;
   }
 }
 
-//定义一个 action type,并创建一个 action creator 函数来生成投票的 action 对象。
-const voteAnecdote = (id) => {
+//定义 action type
+
+//创建一个 action creator 函数来生成投票的 action 对象。
+export const voteAnecdote = (id) => {
   return {
     type: 'VOTE',
     payload: id
   };
 };
 
-export { voteAnecdote }
+//创建一个同步 action creator 函数来生成创建新轶事的 action 对象。
+export const createAnecdote = (content) => {
+  return {
+    type: 'CREATE',
+    payload: {
+      content,
+      id: getId(),
+      votes: 0
+    }
+  };
+};
+
 export default anecdoteReducer

@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux'
 import AnecdoteList from './components/AnecdoteList'
+import AnecdoteForm from './components/AnecdoteForm'
 
 const App = () => {
 
@@ -9,10 +9,7 @@ const App = () => {
       <AnecdoteList />
       <br />
       <h2>create new</h2>
-      <form>
-        <div><input /></div>
-        <button>create</button>
-      </form>
+      <AnecdoteForm />
     </div>
   )
 }
