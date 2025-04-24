@@ -37,6 +37,7 @@ const anecdoteReducer = (state = initialState, action) => {
     case 'CREATE': // 恢复 CREATE 的处理逻辑
       return [...state, action.payload];
 
+
     default:
       return state;
   }
